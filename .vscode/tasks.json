@@ -1,0 +1,40 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build",
+            "type": "shell",
+            "command": "make",
+            "args": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+						},
+            "problemMatcher": ["$gcc"]
+				},
+        {
+          "label": "Run QEMU",
+          "type": "shell",
+          "command": "echo 'QEMU started'; qemu-system-riscv32 -nographic -machine virt -serial mon:stdio -S -s -bios ${workspaceFolder}/hello.elf",
+          "dependsOn": ["Build"],
+          "isBackground": true,
+          "problemMatcher": [
+            {
+              "pattern": [
+                {
+                  "regexp": ".",
+                  "file": 1,
+                  "location": 2,
+                  "message": 3
+								}
+							],
+              "background": {
+                "activeOnStart": true,
+                "beginsPattern": ".",
+                "endsPattern": "QEMU started",
+							}
+						}
+					]
+				}
+		]
+}

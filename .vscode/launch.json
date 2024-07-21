@@ -1,0 +1,16 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug RISC-V",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/hello.elf",
+            "cwd": "${workspaceFolder}",
+            "miDebuggerPath": "gdb",
+            "miDebuggerServerAddress": "localhost:1234",
+            "stopAtEntry": true,
+            "preLaunchTask": "Run QEMU"
+				}
+		]
+}
